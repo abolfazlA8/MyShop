@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورود / ثبت‌نام | فروشگاه آنلاین</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* CSS فرم ورود/ثبت‌نام */
+.auth-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-tabs button.active {
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background: #0056b3;
+}
+
+.message {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🛍️ فروشگاه آنلاین</h1>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="products.html">محصولات</a>
+    <a href="articles.html">مقالات</a>
+    <a href="contact.html">تماس با ما</a>
+    <a href="login.html" class="active">ورود / ثبت‌نام</a>
+  </nav>
+</header>
+
+<main>
+  <div class="auth-container">
+    <div class="auth-tabs">
+      <button id="login-tab" class="active">ورود</button>
+      <button id="register-tab">ثبت‌نام</button>
+    </div>
+
+    <form id="login-form" class="auth-form">
+      <input type="email" name="email" placeholder="ایمیل شما" required>
+      <input type="password" name="password" placeholder="رمز عبور" required>
+      <button type="submit">ورود</button>
+      <div class="message" id="login-message"></div>
+    </form>
+
+    <form id="register-form" class="auth-form" style="display:none;">
+      <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+      <input type="email" name="email" placeholder="ایمیل شما" required>
+      <input type="password" name="password" placeholder="رمز عبور" required>
+      <button type="submit">ثبت‌نام</button>
+      <div class="message" id="register-message"></div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
+</footer>
+
+<script>
+// تب‌ها
+const loginTab = document.getElementById('login-tab');
+const registerTab = document.getElementById('register-tab');
+const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+
+loginTab.addEventListener('click', () => {
+  loginTab.classList.add('active');
+  registerTab.classList.remove('active');
+  loginForm.style.display = 'block';
+  registerForm.style.display = 'none';
+});
+
+registerTab.addEventListener('click', () => {
+  registerTab.classList.add('active');
+  loginTab.classList.remove('active');
+  registerForm.style.display = 'block';
+  loginForm.style.display = 'none';
+});
+
+// ثبت‌نام و ورود با fetch به users.json
+const usersFile = 'users.json';
+
+// ثبت‌نام
+registerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = registerForm.name.value.trim();
+  const email = registerForm.email.value.trim();
+  const password = registerForm.password.value;
+  const msg = document.getElementById('register-message');
+
+  try {
+    let res = await fetch(usersFile);
+    let users = await res.json();
+
+    if(users.find(u => u.email === email)){
+      msg.style.color = 'red';
+      msg.textContent = 'این ایمیل قبلاً ثبت شده است!';
+      return;
+    }
+
+    users.push({name, email, password});
+
+    // ارسال به سرور یا ذخیره فایل نیاز به سرور دارد
+    msg.style.color = 'green';
+    msg.textContent = 'ثبت‌نام با موفقیت انجام شد!';
+    registerForm.reset();
+  } catch(err) {
+    console.error(err);
+    msg.style.color = 'red';
+    msg.textContent = 'خطا در ارتباط با سرور!';
+  }
+});
+
+// ورود
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = loginForm.email.value.trim();
+  const password = loginForm.password.value;
+  const msg = document.getElementById('login-message');
+
+  try {
+    let res = await fetch(usersFile);
+    let users = await res.json();
+
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if(user){
+      msg.style.color = 'green';
+      msg.textContent = `خوش آمدید، ${user.name}!`;
+      loginForm.reset();
+    } else {
+      msg.style.color = 'red';
+      msg.textContent = 'ایمیل یا رمز عبور اشتباه است!';
+    }
+  } catch(err) {
+    console.error(err);
+    msg.style.color = 'red';
+    msg.textContent = 'خطا در ارتباط با سرور!';
+  }
+});
+</script>
+
+</body>
+</html>
