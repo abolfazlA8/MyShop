@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تماس با ما</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تماس با ما | فروشگاه آنلاین</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="header fade-in">
-  <h1>🛍️ فروشگاه آنلاین</h1>
-  <nav>
+<header class="header">
+  <div class="brand"><h1>🛍️ فروشگاه آنلاین</h1></div>
+  <div class="nav">
     <a href="index.html">خانه</a>
     <a href="products.html">محصولات</a>
-    <a href="cart.html">سبد خرید</a>
-    <a href="contact.html">تماس با ما</a>
-  </nav>
+    <a href="articles.html">مقالات</a>
+    <a href="contact.html" class="active">تماس با ما</a>
+    <div class="user-area"></div>
+  </div>
 </header>
 
-<section class="contact fade-in">
-  <h2>ارتباط با ما</h2>
-  <form id="contact-form">
-    <input type="text" placeholder="نام شما" required>
-    <input type="email" placeholder="ایمیل شما" required>
-    <textarea placeholder="پیام شما" required></textarea>
-    <button type="submit">ارسال پیام</button>
-  </form>
-</section>
+<main class="container">
+  <section class="card">
+    <h2 style="color:var(--primary)">راه‌های ارتباطی</h2>
+    <p class="kicker">مدیریت: ابوالفضل علیزاده</p>
+    <p>ایمیل: info@shoponline.com | تلفن: ۰۹۱۲-۱۲۳-۴۵۶۷</p>
+  </section>
 
-<footer class="fade-in">
-  <p>© 2025 فروشگاه آنلاین</p>
-</footer>
+  <section class="card" style="margin-top:12px">
+    <h3>ارسال پیام</h3>
+    <form id="contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="نام شما">
+      </div>
+      <div class="form-row">
+        <input type="email" name="email" placeholder="ایمیل شما">
+      </div>
+      <div class="form-row">
+        <textarea name="message" placeholder="پیام شما" required></textarea>
+      </div>
+      <div class="form-row">
+        <button type="submit" class="btn">ارسال پیام</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <h3>موقعیت ما</h3>
+    <p class="note">نمونه نقشه — برای قرار دادن نقشهٔ گوگل واقعی، iframe نقشه را جایگزین کنید.</p>
+    <div style="background:#fff;border-radius:8px;padding:8px;">
+      <div style="height:220px;border-radius:8px;background:linear-gradient(90deg,#eee,#f8f9fb);display:flex;align-items:center;justify-content:center;color:var(--muted)">
+        نقشه (اینجا قرار می‌گیرد)
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
+  </footer>
+</main>
 
 <script src="script.js"></script>
 </body>
