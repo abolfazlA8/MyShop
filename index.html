@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه اصلی | فروشگاه آنلاین</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>فروشگاه آنلاین — صفحه اصلی</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🛍️ فروشگاه آنلاین</h1>
-  <nav>
+<header class="header">
+  <div class="brand">
+    <h1>🛍️ فروشگاه آنلاین</h1>
+    <div class="kicker">محصولات دیجیتال حرفه‌ای</div>
+  </div>
+
+  <div class="nav">
     <a href="index.html" class="active">خانه</a>
     <a href="products.html">محصولات</a>
     <a href="articles.html">مقالات</a>
     <a href="contact.html">تماس با ما</a>
-  </nav>
+    <div class="user-area"></div>
+  </div>
 </header>
 
-<main>
-  <section class="welcome">
-    <h2>خوش آمدید!</h2>
-    <p>مدیریت سایت: ابوالفضل علیزاده</p>
-    <p>در فروشگاه ما می‌توانید محصولات دیجیتال متنوع مانند ساخت سایت، پاورپوینت حرفه‌ای، ساخت بازی و برنامه را خریداری کنید.</p>
+<main class="container">
+  <section class="hero">
+    <div class="left">
+      <h2>آموزش و محصولاتِ کاربردی — شروع کن</h2>
+      <p>مدیریت: ابوالفضل علیزاده — دوره‌ها و محصولاتی برای طراحی سایت، ساخت پاورپوینت حرفه‌ای و ساخت بازی و برنامه</p>
+      <div style="margin-top:12px">
+        <a href="products.html" class="btn">دیدن محصولات</a>
+        <a href="articles.html" class="btn ghost" style="margin-left:8px">مقالات آموزشی</a>
+      </div>
+    </div>
+    <div class="right" style="min-width:220px;">
+      <div class="card">
+        <div class="kicker">پیشنهاد ویژه</div>
+        <h3>پکیج جامع ساخت سایت</h3>
+        <p>یاد بگیرید یک سایت ریسپانسیو و حرفه‌ای بسازید و منتشر کنید.</p>
+        <div class="product-actions">
+          <span class="badge">محصول دیجیتال</span>
+          <button class="btn-buy btn" data-product="site" data-title="ساخت سایت">افزودن به سبد</button>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="featured-products">
-    <h2>محصولات منتخب</h2>
+  <section>
+    <h3 style="color:var(--primary);margin-bottom:10px">محصولات منتخب</h3>
+    <div class="grid">
+      <div class="card">
+        <h3>ساخت سایت</h3>
+        <p>یاد بگیرید چطور یک سایت فروشگاهی یا شخصی بسازید — از طراحی تا انتشار.</p>
+        <div class="product-actions">
+          <button class="btn-buy btn" data-product="site" data-title="ساخت سایت">خرید</button>
+          <a href="products.html" class="btn ghost">مشاهده</a>
+        </div>
+      </div>
 
-    <div class="product-card">
-      <h3>ساخت سایت</h3>
-      <p>یاد بگیرید چطور یک سایت حرفه‌ای طراحی و پیاده‌سازی کنید، حتی بدون تجربه قبلی.</p>
-      <button>مشاهده محصول</button>
+      <div class="card">
+        <h3>پاورپوینت حرفه‌ای</h3>
+        <p>چطور اسلایدی جذاب و حرفه‌ای بسازیم که توجه مخاطب را نگه دارد.</p>
+        <div class="product-actions">
+          <button class="btn-buy btn" data-product="ppt" data-title="پاورپوینت حرفه‌ای">خرید</button>
+          <a href="products.html" class="btn ghost">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>ساخت بازی و برنامه</h3>
+        <p>شروع یادگیری برنامه‌نویسی برای ساخت بازی‌ها و اپلیکیشن‌ها با پروژه‌محور.</p>
+        <div class="product-actions">
+          <button class="btn-buy btn" data-product="game" data-title="ساخت بازی و برنامه">خرید</button>
+          <a href="products.html" class="btn ghost">مشاهده</a>
+        </div>
+      </div>
     </div>
-
-    <div class="product-card">
-      <h3>پاورپوینت حرفه‌ای</h3>
-      <p>آموزش ساخت پاورپوینت جذاب، خلاقانه و قابل ارائه در سمینار و شرکت‌ها.</p>
-      <button>مشاهده محصول</button>
-    </div>
-
-    <div class="product-card">
-      <h3>ساخت بازی و برنامه</h3>
-      <p>شروع یادگیری برنامه‌نویسی و ساخت بازی‌های ساده تا پیشرفته با پایتون و جاوااسکریپت.</p>
-      <button>مشاهده محصول</button>
-    </div>
-
   </section>
+
+  <footer>
+    <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
+  </footer>
 </main>
 
-<footer>
-  <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
