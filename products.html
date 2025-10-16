@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>محصولات | فروشگاه آنلاین</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <h1>🛍️ فروشگاه آنلاین</h1>
-  <nav>
+<header class="header">
+  <div class="brand"><h1>🛍️ فروشگاه آنلاین</h1></div>
+  <div class="nav">
     <a href="index.html">خانه</a>
     <a href="products.html" class="active">محصولات</a>
     <a href="articles.html">مقالات</a>
     <a href="contact.html">تماس با ما</a>
-  </nav>
+    <div class="user-area"></div>
+  </div>
 </header>
 
-<main>
-  <section class="products-list">
-    <div class="product-card">
-      <h3>ساخت سایت</h3>
-      <p>یاد بگیرید چطور یک سایت حرفه‌ای طراحی و پیاده‌سازی کنید، حتی بدون تجربه قبلی.</p>
-      <button>خرید محصول</button>
-    </div>
+<main class="container">
+  <section>
+    <h2 style="color:var(--primary)">فروشگاه محصولات</h2>
+    <p class="kicker">محصولات دیجیتال: آموزش‌های پروژه‌محور و فایل‌های کاربردی</p>
 
-    <div class="product-card">
-      <h3>پاورپوینت حرفه‌ای</h3>
-      <p>آموزش ساخت پاورپوینت جذاب، خلاقانه و قابل ارائه در سمینار و شرکت‌ها.</p>
-      <button>خرید محصول</button>
-    </div>
+    <div class="grid" style="margin-top:12px">
+      <div class="card">
+        <h3>ساخت سایت</h3>
+        <p>پکیج کامل: طراحی، HTML/CSS، راه‌اندازی و نشر سایت.</p>
+        <div class="product-actions">
+          <span class="badge">پکیج جامع</span>
+          <button class="btn-buy btn" data-product="site" data-title="ساخت سایت">خرید</button>
+        </div>
+      </div>
 
-    <div class="product-card">
-      <h3>ساخت بازی و برنامه</h3>
-      <p>شروع یادگیری برنامه‌نویسی و ساخت بازی‌های ساده تا پیشرفته با پایتون و جاوااسکریپت.</p>
-      <button>خرید محصول</button>
+      <div class="card">
+        <h3>پاورپوینت حرفه‌ای</h3>
+        <p>تمپلیت‌ها، تکنیک‌های طراحی و آموزش آماده‌سازی ارائه.</p>
+        <div class="product-actions">
+          <span class="badge">قابل دانلود</span>
+          <button class="btn-buy btn" data-product="ppt" data-title="پاورپوینت حرفه‌ای">خرید</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>ساخت بازی و برنامه</h3>
+        <p>مقدماتی تا پیشرفته: پروژه‌های پایتون و جاوااسکریپت برای ساخت بازی.</p>
+        <div class="product-actions">
+          <span class="badge">دوره</span>
+          <button class="btn-buy btn" data-product="game" data-title="ساخت بازی و برنامه">خرید</button>
+        </div>
+      </div>
     </div>
   </section>
+
+  <footer>
+    <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
+  </footer>
 </main>
 
-<footer>
-  <p>© 2025 فروشگاه آنلاین | مدیریت: ابوالفضل علیزاده</p>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
